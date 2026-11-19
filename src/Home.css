@@ -1,0 +1,88 @@
+.home {
+  width: calc(100% - 32px);
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.home_image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  margin-bottom: -150px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.home_row {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+  margin: 0 10px;
+
+  /* Added spacing between product containers */
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Give every product in a row equal width */
+.home_row > .product {
+  flex: 1 1 0;
+  min-width: 0;
+
+  /* Added individual product container */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 420px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.home_row > .product .product_info {
+  width: 100%;
+  min-height: 100px;
+}
+
+.home_row > .product .product_rating {
+  display: flex;
+}
+
+.home_row > .product > img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  margin: auto 0 15px;
+}
+
+.home_row > .product > button {
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .home {
+    width: calc(100% - 20px);
+  }
+
+  .home_row {
+    flex-direction: column;
+  }
+
+  .home_row > .product {
+    width: auto;
+    flex: none;
+  }
+}
