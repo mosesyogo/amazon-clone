@@ -7,25 +7,30 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .header_logo {
     width: 100px;
-    object-fit:contain;
+    object-fit: contain;
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 18px;
+    flex-shrink: 0;
 }
 
 .header_searchIcon {
     padding: 5px;
     height: 22px !important;
     background-color: #cd9042;
+    flex-shrink: 0;
 }
 
 .header_search {
     display: flex;
     flex: 1;
+    min-width: 0;                /* lets the search bar shrink */
     align-items: center;
     border-radius: 24px;
 }
@@ -35,11 +40,13 @@
     padding: 10px;
     border: none;
     width: 100%;
+    min-width: 0;                /* inputs have a built-in minimum width */
 }
 
 .header_nav {
     display: flex;
     justify-content: space-evenly;
+    flex-shrink: 0;
 }
 
 .header_link {
@@ -54,6 +61,7 @@
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
+    white-space: nowrap;         /* keeps "Sign In" on one line */
 }
 
 .header_optionBasket {
@@ -75,4 +83,33 @@
 .header_basketCount {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 8px;
+    }
+
+    .header_logo {
+        width: 70px;
+        margin: 8px 8px 0 0;
+    }
+
+    .header_link {
+        margin: 0 4px;
+    }
+
+    .header_option,
+    .header_optionBasket {
+        margin: 0 4px;
+    }
+
+    .header_basketCount {
+        margin: 0 0 0 4px;
+    }
+
+    /* Returns & Orders and Your Prime don't fit on a phone */
+    .header_hideMobile {
+        display: none;
+    }
 }

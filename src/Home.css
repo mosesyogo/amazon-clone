@@ -75,14 +75,28 @@
 @media (max-width: 768px) {
   .home {
     width: calc(100% - 20px);
+    min-width: 0;
+  }
+
+  /* the -150px overlap swallows a phone-sized hero image, so reduce it */
+  .home_image {
+    margin-bottom: -40px;
   }
 
   .home_row {
     flex-direction: column;
+    margin: 0 0 12px;
+    gap: 12px;
   }
 
   .home_row > .product {
-    width: auto;
     flex: none;
+    width: 100%;
+    min-height: 0;          /* the 420px minimum is too tall for a phone */
+    padding: 14px;
+  }
+
+  .home_row > .product > img {
+    height: 200px;
   }
 }

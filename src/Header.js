@@ -6,9 +6,8 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useStateValue } from "./stateProvider";
 
 function Header() {
-    const [{basket, user}] = useStateValue();
-    console.log(basket);
-    console.log(user);
+    const [{ basket }] = useStateValue();
+
   return (
     <nav className='header'>
 
@@ -43,7 +42,7 @@ function Header() {
           </div>
         </Link>
 
-        <Link to='/' className='header_link'>
+        <Link to='/' className='header_link header_hideMobile'>
           <div className='header_option'>
             <span className='header_optionLineOne'>
               Returns
@@ -55,14 +54,14 @@ function Header() {
           </div>
         </Link>
 
-        <Link to='/' className='header_link'>
+        <Link to='/' className='header_link header_hideMobile'>
           <div className='header_option'>
             <span className='header_optionLineOne'>
-              Your 
+              Your
             </span>
 
             <span className='header_optionLineTwo'>
-                Prime
+              Prime
             </span>
           </div>
         </Link>
@@ -72,7 +71,7 @@ function Header() {
             <ShoppingBasketIcon />
             <span className='header_basketCount'>{basket.length}</span>
 
-            <span className='header_optionLineTwo'>
+            <span className='header_optionLineTwo header_hideMobile'>
               Checkout
             </span>
           </div>
